@@ -5,11 +5,11 @@
 
 ---
 ## Disclaimer
-Usage of this repo for illegal pursuits may harm your mental health, as well as the makeup in the prison. 
-So do not try to use this for any illegal activities. At least if you are not good at soap dropping. 
+Usage of this repo for illegal pursuits may harm your mental health, as well as the makeup in the prison.
+So do not try to use this for any illegal activities. At least if you are not good at soap dropping.
 
 Moreover, do not spy on your girlfriend, come on. _Just make her pregnant and leave her._ No! Hold on,
-I hope you understand that it was a joke, and you will never leave her the half of your house. 
+I hope you understand that it was a joke, and you will never leave her the half of your house.
 Actually, spying on someone who's supposed to be your bro, friend and lover is not cool.
 
 ---
@@ -93,7 +93,7 @@ An implementation of `KeyboardListener` for our `KeyboardTrackerApp`.
  Which was forced, as `keyboard.hook` method doesn't return anything and everything you have is the callback you need to provide to it.
  And the callback is only spot where you can put additional functionality. So SRP bye, go talk with `keyboard` package, lol.
 
-Contains `on_key_event` method which 
+Contains `on_key_event` method which is the implementation of abstract callback method. Why abstract? It was forced because of the "lovely" design of `keyboard` package.
 
 ---
 

@@ -1,4 +1,4 @@
-class Container:
+class ContainerBase:
     """
     Mutable data type which:
     - Allows adding new item(s)
@@ -17,20 +17,39 @@ class Container:
     def __init__(self):
         self.__container = []
 
+    def __contains__(self, item):
+        return item in self.__container
+
+    def __delete__(self, instance):
+        self.__instances.remove(self)
+        return self
+
+    def __getitem__(self, item):
+        return self.__container[item]
+
+    def __iter__(self):
+        for i in self.__container:
+            yield i
+
+    def __len__(self):
+        return len(self.__container)
+
+    def __reversed__(self):
+        return self.__str__()[::-1]
+
+    def __str__(self):
+        containing = str(self.__container)[1:-1]
+        return "/" + containing + "/"
+
+
+class Container(ContainerBase):
     def add(self, value):
         self.__container.append(value)
-
-    @property
-    def get(self):
-        return self.__container
 
     def clear(self):
         self.__container.clear()
         return self
 
-    def __len__(self):
-        return len(self.__container)
-
-    def __str__(self):
-        containing = str(self.__container)[1:-1]
-        return "/" + containing + "/"
+    @property
+    def get(self):
+        return self.__container

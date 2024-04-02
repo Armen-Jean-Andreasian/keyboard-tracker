@@ -1,10 +1,6 @@
-import keyboard
+from src import KeyboardTrackerApp
 
-
-def on_key_event(event):
-    print(f'key pressed: {event.name}')
-
-
-keyboard.hook(on_key_event)
-
-
+app = KeyboardTrackerApp(time_active=3)
+app.track()
+result = app.result
+print(len(result))

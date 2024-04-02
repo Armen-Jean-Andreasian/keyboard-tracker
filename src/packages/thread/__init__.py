@@ -1,1 +1,2 @@
-from .infinite_thread import WhileTrueThread
+from .thread_base import WhileTrueThread
+

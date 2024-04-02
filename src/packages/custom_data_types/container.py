@@ -28,6 +28,9 @@ class Container:
         self.__container.clear()
         return self
 
+    def __len__(self):
+        return len(self.__container)
+
     def __str__(self):
         containing = str(self.__container)[1:-1]
         return "/" + containing + "/"

@@ -1,0 +1,12 @@
+The Light Bulb Task
+
+Ask the applicant think of a light switch, and implement a light switch using cPython.
+Switch has on/off, wherever it's on the bulb lights.
+
+Same here, a bulb that you can turn on/off, then again.
+And instead of lighting, the switch the applicant should make can do anything, like print hello world.
+
+The most important part is: to not have any delays between actions. They should be constantly, one after another.
+
+---------
+Author of the task: me

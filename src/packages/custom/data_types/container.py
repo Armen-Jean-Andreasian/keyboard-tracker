@@ -1,11 +1,4 @@
 class ContainerBase:
-    """
-    Mutable data type which:
-    - Allows adding new item(s)
-    - Disallows removing the items by one
-    - Allows clearing all items
-    - Allows deleting the instance from memory
-    """
     __slots__ = ("__container",)
     __instances = set()
 
@@ -17,12 +10,29 @@ class ContainerBase:
     def __init__(self):
         self.__container = []
 
+    def __add__(self, container: "Container") -> "ContainerBase":
+        if not isinstance(container, Container):
+            raise ValueError(f"{container} is not of type Container")
+        else:
+            self.__container.extend(container)
+            return self
+
+    def __add_value__(self, value):
+        self.__container.append(value)
+
+    def __clear__(self):
+        self.__container.clear()
+        return self
+
     def __contains__(self, item):
         return item in self.__container
 
     def __delete__(self, instance):
         self.__instances.remove(self)
         return self
+
+    def __get_container__(self):
+        return self.__container
 
     def __getitem__(self, item):
         return self.__container[item]
@@ -35,7 +45,7 @@ class ContainerBase:
         return len(self.__container)
 
     def __reversed__(self):
-        return self.__str__()[::-1]
+        return reversed(self.__container)
 
     def __str__(self):
         containing = str(self.__container)[1:-1]
@@ -44,12 +54,13 @@ class ContainerBase:
 
 class Container(ContainerBase):
     def add(self, value):
-        self.__container.append(value)
+        self.__add_value__(value)
+        return self
 
     def clear(self):
-        self.__container.clear()
+        self.__clear__()
         return self
 
     @property
     def get(self):
-        return self.__container
+        return self.__get_container__()

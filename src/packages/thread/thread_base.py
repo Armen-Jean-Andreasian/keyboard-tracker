@@ -7,7 +7,7 @@ class SideThread:
     def __init__(self, target: Callable[..., Any], target_args: Optional[list | tuple] = (), timeout: int = 0):
         """
 
-        :param target: Function to run in a new thread.
+        :param target: Function to run in a new side_thread.
         :param target_args: Arguments passed to function
         :param timeout: see
         `threading.Event.wait <https://docs.python.org/3/library/threading.html#threading.Condition.wait>`_
@@ -37,7 +37,7 @@ class SideThread:
 class WhileTrueThread:
     def __init__(self, func: Callable, *method_args, timeout: int = 0, **method_kwargs):
         """
-        :param func: The callable (function) that should be run in a separate thread
+        :param func: The callable (function) that should be run in a separate side_thread
         :param method_args: The args of the function
         :param timeout:  block rate (in seconds)
         `Read the documentation <https://docs.python.org/3/library/threading.html#threading.Condition.wait>`_
@@ -51,22 +51,22 @@ class WhileTrueThread:
         self.side_thread = SideThread(target=self._method_for_thread, timeout=timeout)
 
     def on(self):
-        """Turns on the side thread"""
+        """Turns on the side side_thread"""
         self.side_thread.run()
         return self
 
-    def off(self):
-        """Turns off the side thread"""
+    def off(self) -> bool:
+        """Turns off the side side_thread and returns True"""
         self.side_thread.stop()
-        return self
+        return True
 
     def wait(self, sec: int):
-        """Implicitly let the side thread run for `sec` amount of seconds """
+        """Implicitly let the side side_thread run for `sec` amount of seconds """
         time.sleep(sec)
         return self
 
     def _method_for_thread(self):
-        """Wrapped function to run in an infinite loop until the thread is not implicitly terminated"""
+        """Wrapped function to run in an infinite loop until the side_thread is not implicitly terminated"""
         while True:
             if self.side_thread.is_dead():  # stopping the loop
                 break

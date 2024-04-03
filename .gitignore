@@ -4,3 +4,8 @@ venv/
 *.pyc
 __pycache__/
 error.log
+/dev/temp.py
+/tests/package_tests/content.json
+/src/implementations/data_logger/logs.json
+/keyboard_logs.json
+/dev/

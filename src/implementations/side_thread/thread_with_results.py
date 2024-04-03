@@ -1,5 +1,5 @@
 from src.packages.thread.thread_base import WhileTrueThread
-from src.packages.custom_data_types import Container
+from src.packages.custom.data_types import Container
 from typing import Callable
 
 
@@ -9,7 +9,7 @@ class WhileTrueThreadWithResults(WhileTrueThread):
         Thread that does collect results in a Container and returns it.
 
         :param container: The container to gather results in it
-        :param method:  The method that should be called in a separate thread
+        :param method:  The method that should be called in a separate side_thread
         :param method_args: The args of the method above
         :param exclude_none: If the method returns None, to exclude it or not
         :param method_kwargs: The kwargs of the method
@@ -21,7 +21,7 @@ class WhileTrueThreadWithResults(WhileTrueThread):
 
     def _method_for_thread(self):
         """Wrapped function to run in an infinite loop and gather the results into the container,
-        until the thread is not implicitly terminated"""
+        until the side_thread is not implicitly terminated"""
         while True:
             if self.side_thread.is_dead():  # stopping the loop
                 break

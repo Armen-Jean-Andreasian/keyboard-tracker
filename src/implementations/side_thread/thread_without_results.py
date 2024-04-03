@@ -9,7 +9,7 @@ class WhileTrueThreadWithoutResults(WhileTrueThread):
         This class just run  the method without invoking the values out of it.
         That should be done by the method itself, to keep track of the results
 
-        :param method:  The method that should be called in a separate thread
+        :param method:  The method that should be called in a separate side_thread
         :param method_args: The args of the method above
         :param method_kwargs: The kwargs of the method
 

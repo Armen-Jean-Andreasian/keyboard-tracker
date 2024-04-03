@@ -1,5 +1,5 @@
-from src.implementations.thread_with_results import WhileTrueThreadWithResults
-from src.packages.custom_data_types import Container
+from src.implementations.side_thread.thread_with_results import WhileTrueThreadWithResults
+from src.packages.custom.data_types import Container
 
 func = print
 val = "hello world"

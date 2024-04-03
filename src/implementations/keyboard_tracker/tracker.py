@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 from src.packages.keyboard_listener import KeyboardListener
 
 if TYPE_CHECKING:
-    from src.packages.custom_data_types import Container
+    from src.packages.custom.data_types import Container
 
 
 class KeyboardTracker(KeyboardListener):

@@ -17,6 +17,7 @@ Actually, spying on someone who's supposed to be your bro, friend and lover is n
 
 In this repo you will find:
 - how to kill a thread in `Python`.
+- how to write professional doc-strings. Known as, the code is `documented af`
 - how to create a controllable infinite loop.
 - how to use `keyboard` package.
 - how to follow SOLID rules in hard times.
@@ -44,6 +45,18 @@ In this repo you will find:
 4. Have fun
 
 ---
+## Usage Example
+
+```python
+from src import KeyboardTrackerApp
+
+app = KeyboardTrackerApp(log_file_name='keyboard_logs')
+app.track(time_active=3)
+print(app.result)
+```
+---
+
+
 ## Licence
 
 Depends on you. If you are a respectable user, in case of re-publishing you can mention the origin.
@@ -62,7 +75,7 @@ The blocker is not done yet. Status: coming soon
 ---
 ## Bonus
 
-For Python interviewers who don't know what question to ask, you can find the original `The Light Bulb Task` in [task.txt](task.txt).
+For Python interviewers who don't know what question to ask, you can find the original `The Light Bulb Task` in [bonus.txt](bonus.txt).
 
 If you don't know how to solve it, the `WhileTrueThread` in [thread_base.py](src%2Fpackages%2Fthread%2Fthread_base.py) is the solution.
 
@@ -121,6 +134,17 @@ The child class of `WhileTrueThread` which allows to get all results in a `Conta
 ## `WhileTrueThreadWithoutResults` in [thread_without_results.py](src%2Fimplementations%2Fthread_without_results.py)
 
 Just a stub class as an interface of`WhileTrueThread` allowing to run a function in a thread.
+
+---
+
+## Logger in [logger.py](src%2Fimplementations%2Fdata_logger%2Flogger.py)
+
+Wraps the data with current date and time (str), in the following pattern:
+`wrap = {"date": "DD-MM-YY H:M", "content": data}`
+
+Then adds the wrapped data to a JSON file.
+If the file does not exist a new one will be created, with `logs.json` name in the same directory.
+If the file does not end with .json, adds it to the file
 
 ---
 

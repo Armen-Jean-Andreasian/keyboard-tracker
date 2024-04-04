@@ -147,15 +147,13 @@ class Container(ContainerBase):
         Args:
             value (Any): The value to add to the container.
         """
-        self.__add_value__(value)
-        return self
+        ...
 
     def clear(self) -> "Container":
         """
         Clear all elements from the container.
         """
-        self.__clear__()
-        return self
+        ...
 
     @property
     def get(self) -> UnderlyingContainer:
@@ -165,5 +163,4 @@ class Container(ContainerBase):
         Returns:
             UnderlyingContainer: The underlying container.
         """
-        return self.__get_container__()
-
+        ...
